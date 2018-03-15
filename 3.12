@@ -1,0 +1,29 @@
+# work_note
+  acconut/model/User.java 
+  public int hashCode()
+    {
+        return id != null ? id.hashCode() : 0;
+    }
+
+
+
+acconut/model/UserRole.java
+ public int hashCode()
+    {
+        int result = userId != null ? userId.hashCode() : 0;
+        result = 31 * result + (roleId != null ? roleId.hashCode() : 0);
+        return result;
+    }
+可以减少比较次数
+
+instanceof 判断左边对象是否为右边实例
+Service 通常涉及增删查改
+
+account/RoleService.java
+Role findRoleByName(String roleName);
+
+account/dao/RoleMapper.java
+Role queryRoleByName(@Param("role") String role);
+
+
+
