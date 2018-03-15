@@ -1,0 +1,194 @@
+# work_note
+序列化和反序列化实例
+定义一个类实现序列化接口
+ public class Person implements Serializable {
+11 
+12     /**
+13      * 序列化ID
+14      */
+15     private static final long serialVersionUID = -5809782578272943999L;
+16     private int age;
+17     private String name;
+18     private String sex;
+19 
+20     public int getAge() {
+21         return age;
+22     }
+23 
+24     public String getName() {
+25         return name;
+26     }
+27 
+28     public String getSex() {
+29         return sex;
+30     }
+31 
+32     public void setAge(int age) {
+33         this.age = age;
+34     }
+35 
+36     public void setName(String name) {
+37         this.name = name;
+38     }
+39 
+40     public void setSex(String sex) {
+41         this.sex = sex;
+42     }
+43 }
+序列化对象方法
+private static void SerializePerson() throws FileNotFoundException,
+34             IOException {
+35         Person person = new Person();
+36         person.setName("gacl");
+37         person.setAge(25);
+38         person.setSex("男");
+39         // ObjectOutputStream 对象输出流，将Person对象存储到E盘的Person.txt文件中
+
+，完成对Person对象的序列化操作
+40         ObjectOutputStream oo = new ObjectOutputStream(new FileOutputStream(
+41                 new File("E:/Person.txt")));
+42         oo.writeObject(person);
+43         System.out.println("Person对象序列化成功！");
+44         oo.close();
+45     }
+反序列化对象方法
+private static Person DeserializePerson() throws Exception, IOException {
+56         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(
+57                 new File("E:/Person.txt")));
+58         Person person = (Person) ois.readObject();
+59         System.out.println("Person对象反序列化成功！");
+60         return person;
+61     }
+62 
+63 }
+
+　显式地定义serialVersionUID有两种用途：
+　　　　1、 在某些场合，希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有相
+
+同的serialVersionUID；
+　　　　2、 在某些场合，不希望类的不同版本对序列化兼容，因此需要确保类的不同版本具有
+
+不同的serialVersionUID。
+
+
+
+MVC框架中负责V（视图）对应JSP文件、C（控制器）对应Servlet文件、M（模型）
+ //servlet文件的doPost方法中根据标示名获取JSP文件中表单所包含的参数
+30         String id=request.getParameter("id");
+31         String password=request.getParameter("password");
+//修改web.xml文件，注册servlet并且建立action与servlet之间的映射。
+<servlet>
+10     <servlet-name>MyServlet</servlet-name><!--定义servlet的名称 -->
+11     <servlet-class>cc.MyMVC.servlet.MyServlet</servlet-class><!--对应servlet所属的
+
+文件名 -->
+12   </servlet>
+13 
+14   <servlet-mapping> <!-- 建立servlet与action之间的映射 -->
+15     <servlet-name>MyServlet</servlet-name>  <!-- 映射中servlet的名称，已定义 -->
+16     <url-pattern>/login.do</url-pattern>    <!-- 所对应的action在表单中定义-->
+
+
+在Eclipse中配置Maven
+1.点击eclipse菜单栏Help->Eclipse Marketplace，搜索关键字maven到插件Maven Integration 
+
+for Eclipse 并点击安装即可
+2.为了使得Eclipse中安装的Maven插件，同windows中安装的那个相同，需要让eclipse中的maven
+
+重新定位一下，点击Window -> Preference -> Maven -> Installation -> Add进行设置。
+3.setting目录：D:\apache-maven-3.3.3\conf\settings.xml
+
+
+
+JAVA中使用JSON进行数据传递
+在服务器端的Servlet类中，可以使用如下方法收集数据并生成相应的JSON字符串
+//声明一个Hash对象并添加数据
+Map params =  new HashMap();
+
+params.put("username", username);
+params.put("user_json", user);
+
+//声明JSONArray对象并输入JSON字符串
+JSONArray array = JSONArray.fromObject(params);
+put.println(array.toString());
+
+
+String 转换为JSON对象
+ //定义JSON字符串
+11         String jsonStr = "{\"id\": 2," + 
+12                 " \"title\": \"json title\", " + 
+13                 "\"config\": {" +
+14                     "\"width\": 34," +
+15                     "\"height\": 35," +
+16                 "}, \"data\": [" +
+17                     "\"JAVA\", \"JavaScript\", \"PHP\"" +
+18                 "]}";
+19         
+20         //转换成为JSONObject对象
+21         JSONObject jsonObj = new JSONObject(jsonStr);
+22         
+23         //从JSONObject对象中获取数据
+24         JavaBean bean = new JavaBean();
+25         
+26         //根据属性名称获取int型数据;
+27         bean.setId(jsonObj.getInt("id"));     
+
+JSON对象转换为String字符串
+//创建JSONObject对象
+ 4         JSONObject json = new JSONObject();
+ 5         
+ 6         //向json中添加数据
+ 7         json.put("username", "wanglihong");
+ 8         json.put("height", 12.5);
+ 9         json.put("age", 24);
+10         
+11         //创建JSONArray数组，并将json添加到数组
+12         JSONArray array = new JSONArray();
+13         array.put(json);
+14         
+15         //转换为字符串
+16         String jsonStr = array.toString();
+
+ 集合转换为JSONArray对象
+//初始化JSONArray对象，并添加数据
+        JSONArray array = new JSONArray();
+        array.put(list);
+        array.put(map);
+
+
+
+你至少应该知道的：
+
+（1）配置文件：ASP.NET的web.config和Java的web.xml
+
+（2）Web核心：ASP.NET的IHttpHandler接口和Java的Servlet接口
+
+（3）拦截器：ASP.NET的HttpModule和Java的Filter
+
+（4）应用程序事件：ASP.NET的HttpApplication event和Java的各种Listener
+
+（5）启动器：ASP.NET的Application_Start和Java的ServletContainerInitializer
+
+（6）引用管理：ASP.NET的Nuget和Java的Maven
+
+
+mybatis
+1.在xml中引用
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+2.建立映射关系 
+在<mapper>标签中
+       <insert id="initCertificateInfo"                                              
+
+parameterType="com.huawei.fefo.account.model.CertificateInfo"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into
+		certificate_key(pass_state,keypass,storepass)
+		values(#{passState},#{keypass}, #{storepass});
+	</insert>
+
+
+
+	
+
