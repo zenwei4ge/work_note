@@ -189,6 +189,16 @@ parameterType="com.huawei.fefo.account.model.CertificateInfo"
 	</insert>
 
 
+@param注解
+在方法参数的前面写上@Param("参数名"),表示给参数命名,名称就是括号中的内容
+public Student select(@Param("aaaa") String name,@Param("bbbb")int class_id); 
+给入参 String name 命名为aaaa,然后sql语句....where  s_name= #{aaaa} 中就可以根据aaaa得到参数值了
+@select注解
+@Select(....)注解的作用就是告诉mybatis框架,执行括号内的sql语句
+
+
+
+
 
 	
 
