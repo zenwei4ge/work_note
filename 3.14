@@ -1,0 +1,8 @@
+# work_note
+Object serialization主要用来支持2种主要的特性： 
+1。Java的RMI(remote method invocation).RMI允许象在本机上一样操作远程机器上的对象。当发送消息给远程对象时，就需要用到serializaiton机制来发送参数和接收返回直。 
+2。Java的JavaBeans. Bean的状态信息通常是在设计时配置的。Bean的状态信息必须被存起来，以便当程序运行时能恢复这些状态信息。这也需要serializaiton机制。 
+总之如果在网络的环境下做类传输，应该还是implements Serializable。
+
+Java中的集合（Collection）有两类，一类是List，再有一类是Set。前者集合内的元素是有序的，元素可以重复；后者元素无序，但元素不可重复。
+ 
