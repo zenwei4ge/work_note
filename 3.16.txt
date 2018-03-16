@@ -20,3 +20,54 @@ Token一般用在两个地方——防止表单重复提交、anti csrf攻击（
         
 //移除session 防止重复提交 
             request.getSession().removeAttribute("token");
+            
+            
+mybatis
+        创建一个UserMapper.java文件作为DAO接口
+                public interface UserMapper {
+
+                void save(User user);
+                boolean update(User user);
+                boolean delete(int id);
+                User findById(int id);
+                List<User> findAll();
+                }
+         在dao包下创建一个UserMapper.xml文件作为上一步创建的DAO接口的实现。
+                <?xml version="1.0" encoding="UTF-8"?>
+                <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+                <!-- 
+                        namespace：必须与对应的接口全类名一致
+                        id:必须与对应接口的某个对应的方法名一致
+
+                 -->
+                <mapper namespace="com.tgb.mapper.UserMapper">
+
+                        <insert id="save" parameterType="User">
+                                insert into t_user(user_name,user_age) values(#{userName},#{age})
+                        </insert>
+
+                        <update id="update" parameterType="User">
+                                update t_user set user_name=#{userName},user_age=#{age} where user_id=#{id}
+                        </update>
+                 <!-- mybsits_config中配置的alias类别名,也可直接配置resultType为类路径 -->  
+           mybatis的配置文件
+                <?xml version="1.0" encoding="UTF-8"?>
+                        <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+                        <configuration>
+
+                                <!-- 实体类,简称 -设置别名 -->
+                                <typeAliases>
+                                        <typeAlias alias="User" type="com.tgb.model.User" />
+                                </typeAliases>
+                                <!-- 实体接口映射资源 -->
+                                <!--
+                                        说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为                                                  org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml
+                                -->
+                                <mappers>
+                                        <mapper resource="com/tgb/mapper/userMapper.xml" />
+                                </mappers>
+
+                        </configuration>  
+
