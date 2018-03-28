@@ -81,5 +81,84 @@
                   }//创建实现了标准接口的实体类
                   Criteria male = new CriteriaMale();//实例化标准
                   printPersons(male.meetCriteria(persons));//使用标准进行过滤
+ 组合模式：又叫部分整体模式，是用于把一组相似的对象当作一个单一的对象。组合模式依据树形结构来组合对象，用来表示部分以及整体层次。
+          实现：
+                 public class Employee {
+                   private String name;
+                   private String dept;
+                   private int salary;
+                   private List<Employee> subordinates;
 
+                   //构造函数
+                   public Employee(String name,String dept, int sal) {
+                      this.name = name;
+                      this.dept = dept;
+                      this.salary = sal;
+                      subordinates = new ArrayList<Employee>();
+                   }
+
+                   public void add(Employee e) {
+                      subordinates.add(e);
+                   }
+
+                   public void remove(Employee e) {
+                      subordinates.remove(e);
+                   }
+                }
+  装饰器模式：允许向一个现有的对象添加新的功能，同时又不改变其结构。
+             1.创建实现了 Shape 接口的抽象装饰类。 
+                  public abstract class ShapeDecorator implements Shape {
+                      protected Shape decoratedShape;
+
+                      public ShapeDecorator(Shape decoratedShape){
+                         this.decoratedShape = decoratedShape;
+                      }
+
+                      public void draw(){
+                         decoratedShape.draw();
+                      }    
+                   }
+                2.创建扩展了 ShapeDecorator 类的实体装饰类。
+                    public class RedShapeDecorator extends ShapeDecorator {
+
+                    public RedShapeDecorator(Shape decoratedShape) {
+                       super(decoratedShape);        
+                    }
+
+                    @Override
+                    public void draw() {
+                       decoratedShape.draw();           
+                       setRedBorder(decoratedShape);
+                    }
+
+                    private void setRedBorder(Shape decoratedShape){
+                       System.out.println("Border Color: Red");
+                    }
+                 }
+外观模式：外观模式（Facade Pattern）隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。
+         实现：public class ShapeMaker {
+               private Shape circle;
+               private Shape rectangle;
+               private Shape square;
+
+               public ShapeMaker() {
+                  circle = new Circle();
+                  rectangle = new Rectangle();
+                  square = new Square();
+               }
+
+               public void drawCircle(){
+                  circle.draw();
+               }
+               public void drawRectangle(){
+                  rectangle.draw();
+               }
+               public void drawSquare(){
+                  square.draw();
+               }
+            }
+享元模式：主要用于减少创建对象的数量，以减少内存占用和提高性能。享元模式尝试重用现有的同类对象，如果未找到匹配的对象，则创建新对象。
+        实现：我们将创建一个 Shape 接口和实现了 Shape 接口的实体类 Circle。下一步是定义工厂类 ShapeFactory。
+ShapeFactory 有一个 Circle 的 HashMap，其中键名为 Circle 对象的颜色。无论何时接收到请求，都会创建一个特定颜色的圆。ShapeFactory 检查它的 HashMap 中的 circle 对象，如果找到 Circle 对象，则返回该对象，否则将创建一个存储在 hashmap 中以备后续使用的新对象，并把该对象返回到客户端。
+FlyWeightPatternDemo，我们的演示类使用 ShapeFactory 来获取 Shape 对象。它将向 ShapeFactory 传递信息（red / green / blue/ black / white），以便获取它所需对象的颜色。
 
