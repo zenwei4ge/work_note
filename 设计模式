@@ -161,4 +161,121 @@
         实现：我们将创建一个 Shape 接口和实现了 Shape 接口的实体类 Circle。下一步是定义工厂类 ShapeFactory。
 ShapeFactory 有一个 Circle 的 HashMap，其中键名为 Circle 对象的颜色。无论何时接收到请求，都会创建一个特定颜色的圆。ShapeFactory 检查它的 HashMap 中的 circle 对象，如果找到 Circle 对象，则返回该对象，否则将创建一个存储在 hashmap 中以备后续使用的新对象，并把该对象返回到客户端。
 FlyWeightPatternDemo，我们的演示类使用 ShapeFactory 来获取 Shape 对象。它将向 ShapeFactory 传递信息（red / green / blue/ black / white），以便获取它所需对象的颜色。
+               import java.util.HashMap;
+
+                public class ShapeFactory {
+                   private static final HashMap<String, Shape> circleMap = new HashMap<>();
+
+                   public static Shape getCircle(String color) {
+                      Circle circle = (Circle)circleMap.get(color);
+
+                      if(circle == null) {
+                         circle = new Circle(color);
+                         circleMap.put(color, circle);
+                         System.out.println("Creating circle of color : " + color);
+                      }
+                      return circle;
+                   }
+                }
+代理模式：一个类代表另一个类的功能，在代理模式中，我们创建具有现有对象的对象，以便向外界提供功能接口。
+          实现：public class ProxyImage implements Image{
+
+                private RealImage realImage;
+                private String fileName;
+
+                public ProxyImage(String fileName){
+                   this.fileName = fileName;
+                }
+
+                @Override
+                public void display() {
+                   if(realImage == null){
+                      realImage = new RealImage(fileName);
+                   }
+                   realImage.display();
+                }
+             }
+责任链模式：为请求创建了一个接收者对象的链。每个接收者都包含对另一个接收者的引用。如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，依此类推。
+           实现：
+               1.创建抽象类
+                     public abstract class AbstractLogger {
+                      public static int INFO = 1;
+                      public static int DEBUG = 2;
+                      public static int ERROR = 3;
+
+                      protected int level;
+
+                      //责任链中的下一个元素
+                      protected AbstractLogger nextLogger;
+
+                      public void setNextLogger(AbstractLogger nextLogger){
+                         this.nextLogger = nextLogger;
+                      }
+
+                      public void logMessage(int level, String message){
+                         if(this.level <= level){
+                            write(message);
+                         }
+                         if(nextLogger !=null){
+                            nextLogger.logMessage(level, message);
+                         }
+                      }
+
+                      abstract protected void write(String message);
+
+                   }
+             2.创建抽象类的实体类
+             3.创建链
+               private static AbstractLogger getChainOfLoggers(){
+
+                  AbstractLogger errorLogger = new ErrorLogger(AbstractLogger.ERROR);
+                  AbstractLogger fileLogger = new FileLogger(AbstractLogger.DEBUG);
+                  AbstractLogger consoleLogger = new ConsoleLogger(AbstractLogger.INFO);
+
+                  errorLogger.setNextLogger(fileLogger);
+                  fileLogger.setNextLogger(consoleLogger);
+
+                  return errorLogger;    
+               }
+             4.实现
+                AbstractLogger loggerChain = getChainOfLoggers();//链的第一个
+
+               loggerChain.logMessage(AbstractLogger.INFO, 
+                  "This is an information.");
+
+               loggerChain.logMessage(AbstractLogger.DEBUG, 
+                  "This is an debug level information.");
+
+               loggerChain.logMessage(AbstractLogger.ERROR, 
+                  "This is an error information."
+ 命令模式
+ 策略模式：在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。
+           在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象改变而改变的 context 对象。策略对象改变 context 对象的执行算法。
+          实现：public class Context {
+                  private Strategy strategy;
+
+                  public Context(Strategy strategy){
+                     this.strategy = strategy;
+                  }
+
+                  public int executeStrategy(int num1, int num2){
+                     return strategy.doOperation(num1, num2);
+                  }
+               }
+ MVC模式：Model（模型） - 模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器。
+               View（视图） - 视图代表模型包含的数据的可视化。
+               Controller（控制器） - 控制器作用于模型和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型分离开。
+  业务代表模式：客户端（Client） - 表示层代码可以是 JSP、servlet 或 UI java 代码。
+               业务代表（Business Delegate） - 一个为客户端实体提供的入口类，它提供了对业务服务方法的访问。
+               查询服务（LookUp Service） - 查找服务对象负责获取相关的业务实现，并提供业务对象对业务代表对象的访问。
+               业务服务（Business Service） - 业务服务接口。实现了该业务服务的实体类，提供了实际的业务实现逻辑。
+
+
+
+
+
+
+
+
+
 
