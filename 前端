@@ -1,0 +1,122 @@
+<iframe> 标签：规定一个内联框架。
+              一个内联框架被用来在当前 HTML 文档中嵌入另一个文档。
+          示例：<iframe src="http://www.runoob.com"></iframe>
+<eview:accordion-menu id="accordionmenuid" header="我的账户" current-select="ModifyPassword" dataset="dataArr"  click = "clickHandler" height="100%">
+			</eview:accordion-menu>	
+ <small> 标签：呈现小号字体效果。
+         示例：<small class="errortips-old-in"></small>
+ <input>标签：<input type="button" value="取消" id="clearInput" onclick="clearInput()" />
+ <html>属性：
+              accesskey 属性：规定激活（使元素获得焦点）元素的快捷键。（alt+指定快捷键）
+              data_*属性：嵌入自定义数据
+                           <li onclick="showDetails(this)" id="owl" data-animal-type="鸟类">喜鹊</li>
+                            var animalType = animal.getAttribute("data-animal-type");
+                            alert(animal.innerHTML + "是一种" + animalType + "。");
+              hidden属性：<element hidden="hidden">。
+CSS派生选择器：依据元素在其位置的上下文关系来定义样式
+id 选择器：可以为标有特定 id 的 HTML 元素指定特定的样式。id 选择器以 "#" 来定义。在现代布局中，id 选择器常常用于建立派生选择器。
+类选择器：类选择器以一个点号显示。
+属性选择器：对带有指定属性的 HTML 元素设置样式。
+            1.为带有 title 属性的所有元素设置样式：[title]{color:red;}
+            2.属性和值选择器：为 title="W3School" 的所有元素设置样式：[title=W3School]{border:5px solid blue;}
+            3.属性和值选择器 - 多个值：为包含指定值的 title 属性的所有元素设置样式。[title~=hello] { color:red; }
+CSS子元素选择器：选择只作为 h1 元素子元素的 strong 元素
+                h1>strong
+CSS相邻兄弟选择器：h1+p,选择紧接在另一个元素后的元素，而且二者有相同的父元素
+插入样式表方式：
+            1.外部样式表:使用 <link> 标签链接到样式表。<link> 标签在（文档的）头部：
+                        <head>
+                        <link rel="stylesheet" type="text/css" href="mystyle.css" />
+                        </head>
+            2.内部样式表：使用<style>标签在文档头部定义
+                        <style type="text/css"></style>
+            3.内联样式：在相关标签style属性
+            4.多重样式：如果某些属性在不同的样式表中被同样的选择器定义，那么属性值将从更具体的样式表中被继承过来。
+CSS背景：
+            1.背景色：background-color
+            2.背景图像：background-image: url（address）
+            3.背景重复：background-repeat:repeat-x|repeat-y|no-repeat
+            4.背景定位：background-positiontop:bottom|left|right|center
+                ①位置关键字：第二个词默认为center
+                ②百分值：0% 0%为左上角  100% 100%为右下角
+                ③长度值
+                ④背景关联：背景随文本滚动而滚动，声明图像固定 background-attachment:fixed
+CSS文本：
+            1.缩进文本：text-indent:10em,可以使用负值，百分比值，可以被子标签继承
+            2.水平对齐：text-align:center|left|right|justify(两端对齐)
+            3.字间隔：word-spacing(字，单词)
+            4.字母间隔：letter-spacing
+            5.字符转换：text-transform:none|uppercase|lowercase|capitalize(首字母大写)
+            6.文本装饰：text-decoration:none|underline|overline|line-through|blink
+            7.处理空白符：white-space:normal(合并所有的空白符，并忽略换行符)|pre(不会合并所有的空白符，不会忽略换行符)|nowrap（防止换行）|pre-line(保留换行符，并允许自动换行，但是会合并空白符)|pre-wrap(不仅会保留空白符并保留换行符，还允许自动换行)
+            8.文本方向：direction:ltr|rtl
+CSS字体：
+            1.指定字体：font-family(当字体名中包含空格或特殊字符需用引号表示)
+            2.字体风格：font-style:nomal|italic(斜体)|oblique(倾斜)
+            3.字体变形：font-variant:nomal|small-caps(小型大写字母)
+            4.字体加粗：font-weight:nomal|bold
+            5.字体大小：font-size(使用百分比和em)
+CSS链接： 
+            a:link - 普通的、未被访问的链接
+           a:visited - 用户已访问的链接
+           a:hover - 鼠标指针位于链接的上方
+           a:active - 链接被点击的时刻
+           设置顺序：当为链接的不同状态设置样式时，请按照以下次序规则：
+                    a:hover 必须位于 a:link 和 a:visited 之后
+                    a:active 必须位于 a:hover 之后
+CSS列表：
+            1.列表类型：list-style-type:circle(列表项原点表示)|square(方形点表示)|upper-roman（大写罗马数字）|lower-alpha（小写字母）
+            2.列表项图片：list-style-image:url()
+            3.列表项位置：list-style-position规定列表中列表项目标记的位置
+CSS表格：
+         ①表格边框：border(如果需要显示为单线条可使用border-collapse将边框折叠)
+         ②表格宽高：width,height
+         ③文本对齐：text-align（水平对齐）,vertical-align（垂直对齐）
+         ④表格内边距:padding(内容与边框距离)
+         ⑤表格颜色:color,background-color,border
+ CSS轮廓：
+          1.outline属性：设置顺序outline-color,outline-style,outline-width
+          2.outline-color
+          3.outline-style:dotted|dashed|solid|double
+          4.outline-width
+盒子模型：
+          1.内边距：padding(可以按照上右下左顺序设置四个值)
+          2.边框：
+                ①样式border-style：dotted|solid|dashed|outset(凸起效果，像按钮)
+                ②边框颜色border-color/border-left-color
+                ③透明边框border-color:transparent
+          3.外边距：
+                值复制：允许为外边距指定少于 4 个值。规则如下：
+                        如果缺少左外边距的值，则使用右外边距的值。
+                        如果缺少下外边距的值，则使用上外边距的值。
+                        如果缺少右外边距的值，则使用上外边距的值。
+           4.外边距合并：
+                  当两个垂直外边距相遇时，它们将形成一个外边距。
+                  合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。
+                    ①一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并
+                    ②当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并。
+                    ③假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并
+CSS定位
+          1.框类型：
+                    ①块框：块级框从上到下一个接一个地排列，框之间的垂直距离是由框的垂直外边距计算出来。
+                    ②行框：行内框在一行中水平布置。可以使用水平内边距、边框和外边距调整它们的间距。但是，垂直内边距、边框和外边距不影响行内框的高                   度。由一行形成的水平框。
+          2.CSS相对定位：position：relative;left: 30px;top: 20px;相对于原来位置的定位
+          3.CSS绝对定位： position: absolute;left: 30px; top: 20px;绝对定位的元素的位置相对于最近的已定位祖先元素，如果元素没有已定位的祖先元             素，那么它的位置相对于最初的包含块。
+          4.CSS浮动
+CSS伪类      1.锚伪类：链接的不同状态都可以不同的方式显示，这些状态包括：活动状态，已被访问状态，未被访问状态，和鼠标悬停状态。                                   link|visited|hover|active  a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。a:active 必须被置于 a:hover 之后，才是有                  效的。 
+            2.first-child伪类：  p:first-child(第一个p)
+            3.lang伪类 p:lang(no)
+CSS伪元素     first-line/first-letter/before/after(插入新内容content:url())
+CSS分类属性    1.clear规定元素哪一侧不允许出现浮动元素，clear:left|right|both|none|inherit
+              2.cursor规定要显示的光标类型，cursor：default|auto|crosshair|pointer(一只小手)|move|ne-resize(元素可被上右移动)|text|wait|help
+CSS导航栏     list-style-type:none;
+              margin:0;
+              padding:0;
+              overflow:hidden;
+              text-align:center;
+              text-decoration:none;
+              text-transform:uppercase;
+              水平导航栏实现：display:inline;/float:left
+  
+            
+            
