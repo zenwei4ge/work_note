@@ -1,0 +1,52 @@
+边框
+        圆角边框：border-radius
+        边框阴影：border-shadow:box-shadow: h-shadow v-shadow blur spread color inset(blur模糊距离,spread阴影尺寸，inset设为内阴影)
+        边框图像:border-image:source slice width outset repeat
+背景  
+        背景尺寸：background-size(不需重复将background-repeat设为no-repeat)
+        背景定位区域:background-origin:padding-box|border-box|content-box
+        多重背景：background-image:url(bg_flower.gif),url(bg_flower_2.gif)
+        背景绘制区域：background-clip:padding-box|border-box|content-box
+文本效果
+        文本阴影:text-shadow:h-shadow v-shadow blur  color
+        自动换行：word-wrap:break-word
+        文本溢出:text-overflow:clip|ellipsis(省略修建)|string（overflow:hidden|visible）
+字体
+        @font-face{
+        font-family: myFirstFont;
+        src: url('Sansation_Light.ttf'),
+        }
+2D转换 
+        属性：transform
+        转换方法：
+                ①：移动translate（）元素从其当前位置移动给定的 left（x 坐标） 和 top（y 坐标） 位置参数
+                ②：旋转rotate()元素顺时针旋转给定值
+                ③：缩放scale()元素尺寸放缩给定值倍数的宽度和高度
+                ④：倾斜skew(x,y)元素垂直线倾斜x，水平线倾斜y
+3D转换 
+        属性：transform
+        转换方法：
+                ①：translateX|translateY|translateZ
+过渡
+        transition:property duration
+        transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);规定过渡效果的时间曲线
+         transition-delay过渡效果何时开始   
+ 动画
+        属性animation
+        定义规则@keyframes（选择器可以是百分比）
+        实例：@keyframes myfirst
+              {
+              from {background: red;}
+              to {background: yellow;}
+              }
+              div
+              {
+              animation: myfirst 5s;}
+多列
+        列宽度：column-width
+        列数：column-count
+        列间距：column-gap
+        列规则：column-rule:width|style|color
+        元素横跨的列：column-span:all
+
+              
