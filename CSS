@@ -117,6 +117,11 @@ CSS导航栏     list-style-type:none;
               text-decoration:none;
               text-transform:uppercase;
               水平导航栏实现：display:inline;/float:left
-  
-            
+ 
+ CSS对齐      1.使用margin属性设置为auto
+ 	      2.使用绝对定位position:absolute
+	      3.使用float
+透明度         1.opacity(0~1之间的数，更早版本 filter:alpha(opacity=60);)
+	  
+		
             
