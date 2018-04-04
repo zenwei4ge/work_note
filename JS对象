@@ -1,0 +1,28 @@
+创建javascript对象
+          创建直接的实例  var person=new object();person.name="";person.age=;
+                         person={name:"",age:}
+           使用对象构造器
+                          function person(name,age)
+                          {
+                          this.name=name;
+                          this.age=age;
+                          function changeName(name)
+                          {
+                          this.lastname=name;
+                          }
+                          }
+                          ver person=new person("name",a)
+for...in循环
+          循环遍历对象的每一个属性
+                          for(x in person)
+                          {
+                          txt=txt+x;
+                          }
+JS数字
+JS字符串
+          长度length  
+          查找indexOf
+          替换replace
+          匹配match
+          样式
+ 
