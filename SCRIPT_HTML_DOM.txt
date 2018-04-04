@@ -1,0 +1,38 @@
+文档对象模型（Document Object Model）
+通过 HTML DOM，可访问 JavaScript HTML 文档的所有元素。
+查找HTML元素
+						1.通过id
+										var x=document.getElementById("id");
+						2.通过标签名
+										var y=x.getElementByTagName("p");
+						3.通过class
+改变HTML	
+						1.改变HTML输出流  document.write()
+						2.改变HTML内容    document.getElementById("id").innerHTML=""
+						3.改变HTML属性     document.getElementById("id").Attribute=""
+DOM改变CSS
+						1.语法     document.getElementById("").style.property=""
+DOM事件
+						1.语法：向事件属性添加JavaScript代码 onclick=javascript
+						2.使用DOM为元素分配事件
+										document.getElementById("").click=function(){action()};
+						3.事件类型：onclick,onload,onunload,onmouseover,onmouseout,onmousedown,onmouseup,onchange
+DOM节点
+						1.创建新的HTML元素（必须向已存在的元素追加该元素）
+						示例
+									var para=document.createElement("p");
+									var node=document.creatTextNode("这是个新段落")
+									para.appendChild(node);
+									var div=document.getElementById("div1");
+									div.appendChild(para);
+						2.删除HTML元素
+									var para=document.getElementById("p1");
+									var div=document.getElementById("div");
+									div.removeChild(para);
+						3.
+									
+						
+				 		
+							
+								 
+						
