@@ -21,8 +21,22 @@ for...in循环
 JS数字
 JS字符串
           长度length  
-          查找indexOf
-          替换replace
-          匹配match
-          样式
- 
+          查找indexOf()//定位字符串中某一个指定的字符首次出现的位置
+          替换replace()//用某些字符替换另一些字符
+          匹配match()//查找字符串中特定的字符，并且如果找到的话，则返回这个字符
+          样式big()|small()...
+ JS日期   
+          Date（）//返回当前时间
+          getTime()//返回70年1月1日至今的毫秒数
+          setFullYear()//设置具体的日期，参数为年月日
+          toUTCString()//将当前日期转换成字符串
+          getDay()//将周日到周六编号为0-6
+          getMinutes()|getHours()|getSeconds()
+          显示钟表：在body标签onload属性设置函数startTime(),并在函数中设置定时器setTimeout('startTime()',500)递归调用自身
+          日期可进行大小比较
+ JS数组
+          定义数组：1.var myArray=new Array();myArray[0]="";myArray[1]="";
+                    2.var myArray=new Array("","");
+          
+          
+          
