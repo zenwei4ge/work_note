@@ -1,0 +1,77 @@
+JS Window
+          浏览器对象模型BOM:使JavaScript 有能力与浏览器“对话”
+          Window对象表示浏览器窗口
+          window尺寸
+                      1.window.innerHeight||window.innerWidth
+                      2.document.body.clientHeight||document.body.clientWidth
+                      3.document.documentElement.clientHeight||document.documentElement.clientWidth
+                      实用方案：var w=window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
+          window方法
+                      window.open() - 打开新窗口
+                      window.close() - 关闭当前窗口
+                      window.moveTo() - 移动当前窗口
+                      window.resizeTo() - 调整当前窗口的尺寸
+JS Screen    
+            可用高度  screen.availHeight
+            可用宽度  screen.availWidth
+JS Location 
+            window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。
+            Window Location Href    location.href 返回当前页面的 URL
+            Window Location Pathname       location.pathname 属性返回 URL 的路径名
+            Window Location Assign       location.assign() 方法加载新的文档
+JS History 
+            Window History Back   history.back()与后退按钮功能相同
+            Window History Forward  history.forward()加载历史列表中下一个url
+JS Navigator
+            window.navigator 对象包含有关访问者浏览器的信息
+JS PopupAlert消息框
+            警告框 alert("文本")（添加折行的警告框可插入\n）
+            确定框 confirm("文本")
+            提示框 prompt("文本"，"默认值")(默认值为输入框里的默认值)
+ JS Timing计时
+            JavaScript 计时事件    在一个设定的时间间隔之后来执行代码
+            setTimeout()   var t=setTimeout("javascript语句",毫秒)//第二个参数指示从当前起多少毫秒后执行第一个参数
+            无穷循环中的计时器   编写一个函数来调用其自身
+            clearTimeout()    clearTimeout(setTimeout_variable)
+ JS Cookies
+            cookie 用来识别用户
+            cookie 是存储于访问者的计算机中的变量
+            创建和存储 cookie
+                                function setCookie(c_name,value,expiredays)
+                                {
+                                var exdate=new Date()
+                                exdate.setDate(exdate.getDate()+expiredays)//设置有效日期
+                                document.cookie=c_name+ "=" +escape(value)+
+                                ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+                                }
+              检查是否已设置 cookie：
+                                  function getCookie(c_name)
+                                  {
+                                  if (document.cookie.length>0)
+                                    {
+                                    c_start=document.cookie.indexOf(c_name + "=")
+                                    if (c_start!=-1)
+                                      { 
+                                      c_start=c_start + c_name.length+1 
+                                      c_end=document.cookie.indexOf(";",c_start)
+                                      if (c_end==-1) c_end=document.cookie.length
+                                      return unescape(document.cookie.substring(c_start,c_end))
+                                      } 
+                                    }
+                                  return ""
+                                  }
+                 如果 cookie 已设置，则显示欢迎词，否则显示提示框来要求用户输入名字：
+                                  function checkCookie()
+                                  {
+                                  username=getCookie('username')
+                                  if (username!=null && username!="")
+                                    {alert('Welcome again '+username+'!')}
+                                  else 
+                                    {
+                                    username=prompt('Please enter your name:',"")
+                                    if (username!=null && username!="")
+                                      {
+                                      setCookie('username',username,365)
+                                      }
+                                    }
+                                  }
