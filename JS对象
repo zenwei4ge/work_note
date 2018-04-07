@@ -37,6 +37,26 @@ JS字符串
  JS数组
           定义数组：1.var myArray=new Array();myArray[0]="";myArray[1]="";
                     2.var myArray=new Array("","");
-          
-          
+  JS逻辑
+           创建Boolean对象: var myBoolean=new Boolean();//当初始化参数为空或其值为 0、-0、null、""、false、undefined 或者 NaN，那么对象值为                 false,否则值为true
+   JS算数
+            四舍五入 Math.round()
+            0-1之间随机数 Math.random()
+            较大数  Math.max()
+            较小数  Math.min()
+            常数 Math.E
+          圆周率 Math.PI
+          2 的平方根 Math.SQRT2
+          1/2 的平方根 Math.SQRT1_2
+          2 的自然对数 Math.LN2
+          10 的自然对数 Math.LN10
+          以 2 为底的 e 的对数 Math.LOG2E
+          以 10 为底的 e 的对数 Math.LOG10E
+ JS正则表达式
+          RegExp对象，初始化参数为正则表达式的模式
+          test(),如果检索到值返回true
+          exec(),如果检索到值返回该值
+          compile(),更改表达式的模式
+          
+          
           
