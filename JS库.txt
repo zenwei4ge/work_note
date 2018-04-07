@@ -1,0 +1,8 @@
+JQuery库引用  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+Prototype库引用   <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js">
+JQuery
+      $("#h01").attr("style","color:red").html("Hello jQuery")
+      $(document).ready(myFunction)
+Prototype
+      $("h01").insert("Hello Prototype!")
+      Event.observe(window,"load",myFunction)
