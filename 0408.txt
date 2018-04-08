@@ -19,3 +19,35 @@
 	</tbody>
 </table>
 <span>相当于lable
+
+JS属性方法 attr()
+	$(selector).attr(attribute)//获取属性值
+	$(selector).attr(attribute，value)//设置属性值
+	$(selector).attr(attribute：value,attribute:value)//设置多个属性值
+JQuery按键事件
+	$(selector).keydown(function(){})//按键按下运行函数
+JQuery事件 bind（）方法
+	$(selector).bind(event,data,function)
+JQuery文档操作方法 append()
+	$(selector).append(content)//在指定元素结尾内部插入内容
+JQuery数据方法data()
+	$(selector).data(name)//从被选元素返回附加数据
+	$(selector).data(name,value)//向被选元素附加数据
+JQuery样式方法css()
+	$(selector).css(name)//返回属性值
+	$(selector).css(name,value)//设置属性值
+JQuery属性操作val()
+	$(selector).val()  返回元素value值
+	$(selector).val(value) 设置元素value值
+jQuery prop() 方法
+	返回属性的值：
+	$(selector).prop(property)
+	设置属性和值：
+	$(selector).prop(property,value)
+empty()
+	$(selector).empty()//从被选元素移除所有内容，包括所有文本和子节点
+	
+默认显示第一页的十个
+	if(i>9){
+		$('.records-tbody tr:last').hide;
+	
