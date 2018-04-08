@@ -1,0 +1,21 @@
+<select>
+<option value="">value1</option>
+<option value="">value2</option>
+</select>
+<table>
+	<thead>
+		<tr>
+			<th width="">名称</th>
+			<th width="">名称</th>
+			<th width="">名称</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>名称</td>
+			<td>名称</td>
+			<td>名称</td>
+		</tr>
+	</tbody>
+</table>
+<span>相当于lable
