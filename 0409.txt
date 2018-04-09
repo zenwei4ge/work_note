@@ -1,0 +1,28 @@
+输入enter键触发事件
+    $(selector).keydown(
+      function(e){
+      if(e.which="13"){}
+      }
+    )
+绘图
+      <canvas></canvas>
+      
+      var canvas=$('canvas');
+      var stage=new JTopo.Stage(canvas);
+      var scene=new JTopo.Scene(stage);
+      var rootNode;
+      stage.mode='select';
+      
+      var node = new JTopo.Node(_nodeName)
+      var fillColor;
+			node.setSize(140,60);
+			node.textPosition = 'Middle_Center';
+      node.fullName = nodeName;
+			node.fillColor = fillColor;
+			node.fontColor = '0,0,0';
+			node.dragable = false;
+			scene.add(node);
+      
+      scene.doLayout(JTopo.layout.TreeLayout('down', 100, 120));
+      
+      
