@@ -1,0 +1,34 @@
+JQuery语法   $(selector).action()
+            $(document).ready()//文档就绪函数,防止script在文档未加载完执行
+JQuery选择器
+            元素选择器  $("p")
+            属性选择器  $("[href='']")
+                        $("[href$='.jpg']")//所有带有以 ".jpg" 结尾的属性值的 href 属性
+JQuery事件
+            JQuery名称冲突   var jq=$.noConfilct();
+            Event函数
+                            $(document).ready(function)	将函数绑定到文档的就绪事件（当文档完成加载时）
+                            $(selector).click(function)	触发或将函数绑定到被选元素的点击事件
+                            $(selector).dblclick(function)	触发或将函数绑定到被选元素的双击事件
+                            $(selector).focus(function)	触发或将函数绑定到被选元素的获得焦点事件
+                            $(selector).mouseover(function)	触发或将函数绑定到被选元素的鼠标悬停事件
+JQuery效果
+            隐藏/显示   
+                            $(selector).hide(speed,callback);//隐藏， speed 参数规定效果的时长，callback完成后所执行的函数名称
+                            $(selector).show(speed,callback);//显示
+                            $(selector).toggle(speed,callback);切换显示/隐藏状态
+            淡入淡出
+                            
+                            $(selector).fadeIn(speed,callback);
+                            $(selector).fadeOut(speed,callback);
+                            $(selector).fadeToggle(speed,callback);    
+                            $(selector).fadeTo(speed,opacity,callback);
+            滑动
+                            $(selector).slideUp(speed,callback);
+                            $(selector).slideDown(speed,callback);
+                            $(selector).slideToggle(speed,callback);
+            动画
+                            $(selector).animate({params},speed,callback);//可同时操作多个属性，使用 Camel 标记法书写所有的属性名，驼峰原则，
+                             执行不同动画，可使用animate队列
+                             
+                            
