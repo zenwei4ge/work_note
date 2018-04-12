@@ -30,5 +30,107 @@ JQuery效果
             动画
                             $(selector).animate({params},speed,callback);//可同时操作多个属性，使用 Camel 标记法书写所有的属性名，驼峰原则，
                              执行不同动画，可使用animate队列
-                             
+            JQuery stop()
+                            $(selector).stop();//停止动画或效果，在它们完成之前
+            JQuery chaining  
+                            $("#p1").css("color","red").slideUp(2000).slideDown(2000);允许我们在相同的元素上运行多条 jQuery 命令，一条接着另一条。
+jQuery HTML
+            jQuery获取
+                            text() - 设置或返回所选元素的文本内容
+                            html() - 设置或返回所选元素的内容（包括 HTML 标记）
+                            val() - 设置或返回表单字段的值
+            jQuery设置
+                            设置内容
+                                      text() - 设置或返回所选元素的文本内容
+                                      html() - 设置或返回所选元素的内容（包括 HTML 标记）
+                                      val() - 设置或返回表单字段的值
+                            设置属性
+                                      $("#w3s").attr("href","http://www.w3school.com.cn/jquery");
+                            添加元素
+                                      $("").append()//在被选元素的结尾插入内容
+                                      $("").preappend()//在被选元素的开头插入内容
+                                      $("").after()//在被选元素之后插入内容
+                                      $("").before()//在被选元素之前插入内容
+             jQuery删除
+                            remove() - 删除被选元素（及其子元素）
+                            empty() - 从被选元素中删除子元素
+             获取并设置CSS类
+                            addClass() - 向被选元素添加一个或多个类
+                            removeClass() - 从被选元素删除一个或多个类
+                            toggleClass() - 对被选元素进行添加/删除类的切换操作
+                            css() - 设置或返回样式属性
+             jQuery css()方法
+                            css("propertyname","value");
+                            css({"propertyname":"value","propertyname":"value",...});
+             jQuery尺寸
+                            width() 方法设置或返回元素的宽度（不包括内边距、边框或外边距）
+                            height() 方法设置或返回元素的高度（不包括内边距、边框或外边距）
+                            innerWidth() 方法返回元素的宽度（包括内边距）
+                            innerHeight() 方法返回元素的高度（包括内边距）
+                            outerWidth() 方法返回元素的宽度（包括内边距和边框）
+                            outerHeight() 方法返回元素的高度（包括内边距和边框）
+                            outerWidth(true) 方法返回元素的宽度（包括内边距、边框和外边距）
+                            outerHeight(true) 方法返回元素的高度（包括内边距、边框和外边距）
+ jQuery遍历
+            向上遍历
+                           parent()//返回被选元素直接父元素
+                           parents()//返回被选元素所有祖先元素，一路向上直达根元素<html>
+                           parentsUntil()//返回介于给定元素之间的祖先元素
+            向下遍历
+                           children()//返回被选元素的所有直接子元素,可以使用可选参数来过滤对子元素的搜索
+                            $("div").children("p.1")
+                            find() 方法返回被选元素的后代元素，一路向下直到最后一个后代
+                            $("div").find("span")//返回属于 <div> 后代的所有 <span> 元素
+                            $("div").find("*")//返回 <div> 的所有后代
+            遍历同胞
+                            siblings()//返回所有同胞元素，可搜索可选参数
+                            next()//返回下一个同胞元素
+                            nextAll()//返回被选元素所有跟随的同胞元素
+                            nextUntil()//返回被选元素和指定元素之间的同胞元素
+                            jQuery prev(), prevAll() & prevUntil() 方法同上
+             过滤
+                            first()//返回被选元素的第一个元素
+                            last()//返回被选元素的最后一个元素
+                            eq(index)//返回被选元素中带有指定索引号的元素
+                            filter()//返回匹配的元素
+                            $("p").filter(".intro")//返回带有类名 "intro" 的所有 <p> 元素：
+                            not()//返回所有不匹配的元素
+jQuery AJAX
+           AJAX load()方法
+                           $(selector).load(URL,data,callback)//从服务器加载数据，并把返回的数据放入被选元素中
+                           必需的 URL 参数规定您希望加载的 URL
+                           可选的 data 参数规定与请求一同发送的查询字符串键/值对集合
+                           可选的 callback 参数是 load() 方法完成后所执行的函数名称
+                           示例
+                           $("#div1").load("demo_test.txt") 
+                           回调函数可以设置不同的参数：
+                                             responseTxt - 包含调用成功时的结果内容
+                                             statusTXT - 包含调用的状态
+                                             xhr - 包含 XMLHttpRequest 对象 
+                            实例
+                                              $("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
+                                              if(statusTxt=="success")
+                                                alert("外部内容加载成功！");
+                                              if(statusTxt=="error")
+                                                alert("Error: "+xhr.status+": "+xhr.statusText);
+                                            });
+             $.get()方法                    
+                          语法：$.get(URL,callback)
+                          示例：//使用 $.get() 方法从服务器上的一个文件中取回数据
+                                  $.get("demo_test.asp",function(data,status){
+                                    alert("Data: " + data + "\nStatus: " + status);
+                                  });
+             $.post()方法
+                         语法：$.get(URL,callback)
+                         示例：//使用 $.post() 连同请求一起发送数据
+                               $.post("demo_test_post.asp",
+                               {
+                                 name:"Donald Duck",
+                                 city:"Duckburg"
+                               },
+                               function(data,status){
+                                 alert("Data: " + data + "\nStatus: " + status);
+                               });
+                            
+                            
                             
