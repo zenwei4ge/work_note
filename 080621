@@ -1,0 +1,13 @@
+启动项目过程
+将fefo-pkg包打包
+将fefo-kar包打包
+启动gaussdb
+执行D:\worksp-fefo\Code\src\deploy\sql路径下的sql文件
+修改D:\worksp-fefo\Code\src\deploy\scripts路径下的sh文件
+执行cryptoKeyInit.sh
+执行databaseInit.sh
+将打包的文件（在fefo-kar/deploy）复制到karaf/deploy文件夹
+在karaf\bin启动cmd，输入命令karaf clean
+输入list知道显示项目
+输入feature:install com.huawei.fefo.kar.account
+浏览器地址中输入https://10.165.66.88:8444/portal/
